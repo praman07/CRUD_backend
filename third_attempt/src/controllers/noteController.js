@@ -21,3 +21,31 @@ export const createNote = asyncHandler(async (req, res) => {
     data: note,
   });
 });
+
+// @desc    Get all notes
+// @route   GET /api/notes
+export const getAllNotes = asyncHandler(async (req, res) => {
+  const notes = await Note.find().sort({ createdAt: -1 });
+
+  res.status(200).json({
+    success: true,
+    count: notes.length,
+    data: notes,
+  });
+});
+
+// @desc    Get single note by ID
+// @route   GET /api/notes/:id
+export const getNoteById = asyncHandler(async (req, res) => {
+  const note = await Note.findById(req.params.id);
+
+  if (!note) {
+    return res.status(404).json({ success: false, message: "Note not found" });
+  }
+
+  res.status(200).json({
+    success: true,
+    data: note,
+  });
+});
+
