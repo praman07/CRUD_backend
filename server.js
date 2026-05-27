@@ -9,6 +9,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+// API routes
+app.use("/api/notes", require("./src/routes/noteRoutes"));
+
 // Connect to DB then start server
 connectDB().then(() => {
   app.listen(PORT, () => {
