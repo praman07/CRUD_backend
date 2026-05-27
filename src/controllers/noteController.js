@@ -39,5 +39,22 @@ const getNoteById = asyncHandler(async (req, res) => {
     data: note,
   });
 });
+// @desc    Update a note
+// @route   PATCH /api/notes/:id
+const updateNote = asyncHandler(async (req, res) => {
+  const note = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
 
-module.exports = { createNote, getAllNotes, getNoteById };
+  if (!note) {
+    return res.status(404).json({ success: false, message: "Note not found" });
+  }
+
+  res.status(200).json({
+    success: true,
+    data: note,
+  });
+});
+
+module.exports = { createNote, getAllNotes, getNoteById, updateNote };
