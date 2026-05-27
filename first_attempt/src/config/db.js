@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
-// Connect to MongoDB Atlas
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB Connected`);
-  } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
-  }
-};
 
-module.exports = connectDB;
+async function connectDB() {
+    try {
+        await mongoose.connect("mongodb://localhost:27017/kodex")
+        console.log("Connected to MongoDB");
+    } catch (err) {
+        console.error("Error connecting to MongoDB", err);
+    }
+}
+
+
+export default connectDB;

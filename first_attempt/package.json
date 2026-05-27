@@ -1,24 +1,20 @@
 {
-  "name": "notes-crud-api",
+  "name": "kodex",
   "version": "1.0.0",
-  "description": "Production-style CRUD Notes/Todo REST API",
+  "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
-  "keywords": [
-    "notes",
-    "crud",
-    "rest-api",
-    "express",
-    "mongodb"
-  ],
-  "author": "Prajapati",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
