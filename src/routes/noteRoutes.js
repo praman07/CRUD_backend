@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { createNote } = require("../controllers/noteController");
+const { createNote, getAllNotes, getNoteById } = require("../controllers/noteController");
 
 // POST /api/notes — create a note
 router.post("/", createNote);
+
+// GET /api/notes — get all notes
+router.get("/", getAllNotes);
+
+// GET /api/notes/:id — get single note
+router.get("/:id", getNoteById);
 
 module.exports = router;
